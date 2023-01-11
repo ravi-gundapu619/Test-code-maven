@@ -29,7 +29,7 @@ pipeline
             steps
             {
                git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
-               sh 'java -jar /home/ubuntu/.jenkins/workspace/DeclarativePipeline1/testing.jar'
+               sh 'java -jar /home/ubuntu/.jenkins/workspace/"Dec Pipeline2"/testing.jar'
             }
         }
        
@@ -39,7 +39,7 @@ pipeline
     {
         success
         {
-            input message: 'Need approval from the DM!', submitter: 'srinivas'
+            input message: 'Need approval from the DM!'
                deploy adapters: [tomcat9(credentialsId: 'bfb67f1d-2f4e-430c-bb8d-30584116bd00', path: '', url: 'http://172.31.50.204:9090')], contextPath: 'prod1', war: '**/*.war'
         }
         failure
@@ -55,3 +55,4 @@ pipeline
     
     
 }
+
